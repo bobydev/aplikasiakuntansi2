@@ -45,6 +45,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
+            @role('admin')
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder-open"></i>
@@ -59,8 +60,10 @@
                         <a class="collapse-item fas fa-arrow-circle-right" href="#"> Sub Menu 5</a>
                     </div>
                 </div>
+            @endrole
             </li>
             <li class="nav-item">
+            @role('user')
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1"
                     aria-expanded="true" aria-controls="collapsePages1">
                     <i class="fas fa-fw fa-folder-open"></i>
@@ -76,6 +79,7 @@
                         <a class="collapse-item fas fa-arrow-circle-right" href="#"> Sub Menu 5</a>
                     </div>
                 </div>
+            @endrole
             </li>
 
             <!-- Nav Item - Tables -->
@@ -196,7 +200,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Create By: Your Name<br>Copyright &copy; Your Website 2020</span>
+                        <span>Modified By: BOBY APRESPA<br><br>Copyright &copy; Universitas Bina Sarana Informatika 2020</span>
                     </div>
                 </div>
             </footer>
