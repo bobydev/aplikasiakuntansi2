@@ -19,7 +19,7 @@ class TriggerTambah extends Migration
                 UPDATE barang
                 SET stok = stok + qty_beli
                 WHERE
-                kd_brg = NEW.kd_brg;
+                kd_barang = NEW . kd_barang;
             END
         ');
     }

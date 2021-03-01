@@ -14,6 +14,7 @@ class DetailPembelian extends Migration
     public function up()
     {
         Schema::create('detail_pembelian', function (BluePrint $table){
+            $table->string('kd_barang', 14);
             $table->string('no_beli', 14);
             $table->integer('qty_beli');
             $table->integer('sub_beli');
