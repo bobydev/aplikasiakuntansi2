@@ -25,11 +25,11 @@
                 <tbody> 
                     @foreach ($user as $row) 
                     <tr> 
-                        <td>{{$row->id}}</td> 
+                        <td align="center">{{$row->id}}</td> 
                         <td>{{$row->name}}</td> 
                         <td>{{$row->email}}</td> 
                     @foreach ($row->roles as $r) 
-                        <td>{{$r->id}}</td> 
+                        <td align="center">{{$r->id}}</td> 
                     @endforeach
                     <td align="center"> 
                         <a href="/user/hapus/{{ $row->id }}" onclick="return confirm('Yakin Ingin menghapus data?')" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"> 
