@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Alert;
 
-class BarangController extends Controller
-{
+
+class SupplierController extends Controller
+{ 
     /**
      * Display a listing of the resource.
      *
@@ -16,9 +17,9 @@ class BarangController extends Controller
     public function index()
     {
         //
-        $barang = \App\Barang::All(); 
+        $supplier = \App\Supplier::All(); 
         
-        return view('admin.barang.barang',['barang' => $barang]);
+        return view('admin.supplier.supplier',['supplier' => $supplier]);
     }
 
     /**
@@ -29,7 +30,7 @@ class BarangController extends Controller
     public function create()
     {
         //
-        return view('admin.barang.input');
+        return view('admin.supplier.input');
     }
 
     /**
@@ -41,16 +42,16 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         //
-        $tambah_barang = new \App\Barang; 
-        $tambah_barang->kd_barang = $request->addkdbrg; 
-        $tambah_barang->nm_barang = $request->addnmbrg; 
-        $tambah_barang->harga = $request->addharga; 
-        $tambah_barang->stok = $request->addstok; 
-        $tambah_barang->save(); 
+        $tambah_supp = new \App\Supplier; 
+        $tambah_supp->kd_supp = $request->addkdsupp; 
+        $tambah_supp->nm_supp = $request->addnmsupp; 
+        $tambah_supp->alamat = $request->addalamat; 
+        $tambah_supp->no_telp = $request->addnotelp; 
+        $tambah_supp->save(); 
         
         Alert::success('Pesan ','Data berhasil disimpan'); 
         
-        return redirect('/barang');
+        return redirect('/supplier');
     }
 
     /**
@@ -70,12 +71,12 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($kd_barang)
+    public function edit($kd_supp)
     {
         //
-        $barang = DB::table('barang')->where('kd_barang', $kd_barang)->get();
+        $supplier = DB::table('supplier')->where('kd_supp', $kd_supp)->get();
         
-        return view('admin.barang.editBarang', ['barang'=> $barang]);
+        return view('admin.supplier.editSupp', ['supplier'=> $supplier]);
 
     }
 
@@ -89,23 +90,16 @@ class BarangController extends Controller
     public function update(Request $request)
     {
         //
-        // $tambah_barang = new \App\Barang; 
-        // $tambah_barang->kd_barang = $request->addkdbrg; 
-        // $tambah_barang->nm_barang = $request->addnmbrg; 
-        // $tambah_barang->harga = $request->addharga; 
-        // $tambah_barang->stok = $request->addstok; 
-        // $tambah_barang->save(); 
-
         // DB::table('barang')->where('kd_barang', $request->kd_barang)->update([
         //     'kd_barang' => $request->addkdbrg,
         //     'nm_barang' => $request->addnmbrg,
         //     'harga' => $request->addharga,
         //     'stok' => $request->addstok,
         //     ]);
-        
+
         Alert::success('Pesan ','Data berhasil diupdate'); 
         
-        return redirect('/barang');
+        return redirect('/supplier');
     }
 
     /**
@@ -114,14 +108,14 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($kd_barang)
+    public function destroy($kd_supp)
     {
         //
-        $barang = \App\Barang::findOrFail($kd_barang); 
-        $barang->delete(); 
+        $supp = \App\Supplier::findOrFail($kd_supp); 
+        $supp->delete(); 
         
         Alert::success('Pesan ','Data berhasil dihapus'); 
         
-        return redirect()->route('barang.index');
+        return redirect()->route('supplier.index');
     }
 }

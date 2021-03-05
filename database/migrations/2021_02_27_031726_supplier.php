@@ -17,7 +17,7 @@ class Supplier extends Migration
             $table->string('kd_supp', 5)->primary();
             $table->string('nm_supp', 25);
             $table->string('alamat', 50);
-            $table->string('varchar', 13);
+            $table->string('no_telp', 13);
         });
     }
 

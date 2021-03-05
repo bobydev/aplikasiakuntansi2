@@ -25,5 +25,18 @@ Route::resource('/user','UserController');
 
 Route::resource('/barang','BarangController');
 
+Route::get('/barang/edit/{id}','BarangController@edit');
+
+Route::get('/barang/hapus/{id}','BarangController@destroy'); 
+
+Route::resource('/supplier','SupplierController');
+
+Route::get('/supplier/edit/{id}','SupplierController@edit');
+
+Route::get('/supplier/hapus/{id}','SupplierController@destroy'); 
+
+
+
+
 
 // Route::resource('/barang','BarangController')->middleware('role:admin');
