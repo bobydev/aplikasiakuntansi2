@@ -43,10 +43,12 @@ class SupplierController extends Controller
     {
         //
         $tambah_supp = new \App\Supplier; 
+
         $tambah_supp->kd_supp = $request->addkdsupp; 
         $tambah_supp->nm_supp = $request->addnmsupp; 
         $tambah_supp->alamat = $request->addalamat; 
         $tambah_supp->no_telp = $request->addnotelp; 
+
         $tambah_supp->save(); 
         
         Alert::success('Pesan ','Data berhasil disimpan'); 
@@ -87,19 +89,20 @@ class SupplierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $kd_supp)
     {
-        //
-        // DB::table('barang')->where('kd_barang', $request->kd_barang)->update([
-        //     'kd_barang' => $request->addkdbrg,
-        //     'nm_barang' => $request->addnmbrg,
-        //     'harga' => $request->addharga,
-        //     'stok' => $request->addstok,
-        //     ]);
+        $update_supp = \App\Supplier::findOrFail($kd_supp);
 
-        Alert::success('Pesan ','Data berhasil diupdate'); 
+        $update_supp->kd_supp = $request->addkdsupp; 
+        $update_supp->nm_supp = $request->addnmsupp; 
+        $update_supp->alamat = $request->addalamat; 
+        $update_supp->no_telp = $request->addnotelp; 
         
-        return redirect('/supplier');
+        $update_supp->save(); 
+        
+        Alert::success('Update', 'Data terupdate'); //child dari alert, sukses atau gagal disebut polymorpy
+
+        return redirect('/supplier'); //prosedur
     }
 
     /**
@@ -112,6 +115,7 @@ class SupplierController extends Controller
     {
         //
         $supp = \App\Supplier::findOrFail($kd_supp); 
+
         $supp->delete(); 
         
         Alert::success('Pesan ','Data berhasil dihapus'); 

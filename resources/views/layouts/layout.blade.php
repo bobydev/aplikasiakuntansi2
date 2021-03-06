@@ -62,8 +62,8 @@
                         <a class="collapse-item fas fa-arrow-circle-right" href="{{ route('user.index') }}"> Master User </a>
                         <a class="collapse-item fas fa-arrow-circle-right" href="{{ route('barang.index') }}"> Mater Barang </a>
                         <a class="collapse-item fas fa-arrow-circle-right" href="{{ route('supplier.index') }}"> Master Supplier </a>
-                        <a class="collapse-item fas fa-arrow-circle-right" href="#"> Sub Menu 4</a>
-                        <a class="collapse-item fas fa-arrow-circle-right" href="#"> Sub Menu 5</a>
+                        <a class="collapse-item fas fa-arrow-circle-right" href="{{ route('akun.index') }}"> Master Akun </a>
+                        <a class="collapse-item fas fa-arrow-circle-right" href="{{ route('setting.transaksi') }}"> Master Pengaturan Akun </a>
                     </div>
                 </div>
             @endrole

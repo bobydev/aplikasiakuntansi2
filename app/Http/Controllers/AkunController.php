@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Alert;
 
-class BarangController extends Controller
+class AkunController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,8 @@ class BarangController extends Controller
     public function index()
     {
         //
-        $barang = \App\Barang::All(); 
-        
-        return view('admin.barang.barang',['barang' => $barang]);
+        $akun = \App\Akun::all();
+        return view('admin.akun.akun', ['akun' => $akun]); //array
     }
 
     /**
@@ -29,7 +28,7 @@ class BarangController extends Controller
     public function create()
     {
         //
-        return view('admin.barang.input');
+        return view('admin.akun.input');
     }
 
     /**
@@ -40,17 +39,17 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $tambah_barang = new \App\Barang; 
-        $tambah_barang->nm_barang = $request->addnmbrg; 
-        $tambah_barang->kd_barang = $request->addkdbrg; 
-        $tambah_barang->harga = $request->addharga; 
-        $tambah_barang->stok = $request->addstok; 
-        $tambah_barang->save(); 
-        
-        Alert::success('Pesan ','Data berhasil disimpan'); 
-        
-        return redirect('/barang');
+        //untuk menyimpan data
+        $tambah_akun = new \App\Akun;
+
+        $tambah_akun->no_akun = $request->addnoakun;
+        $tambah_akun->nm_akun = $request->addnmakun;
+        $tambah_akun->save(); //method
+
+        Alert::success('Pesan', 'Data tersimpan'); //child dari alert, sukses atau gagal disebut polymorpy
+
+        return redirect('/akun'); //prosedur
+
     }
 
     /**
@@ -70,13 +69,12 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($kd_barang)
+    public function edit($no_akun)
     {
         //
-        $barang = DB::table('barang')->where('kd_barang', $kd_barang)->get();
+        $akun = DB::table('akun')->where('no_akun', $no_akun)->get();
         
-        return view('admin.barang.editBarang', ['barang'=> $barang]);
-        
+        return view('admin.akun.editAkun', ['akun'=> $akun]);
     }
 
     /**
@@ -86,15 +84,14 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $kd_barang)
+    public function update(Request $request, $no_akun)
     {
-        $update_barang = \App\Barang::findOrFail($kd_barang);
+        //untuk update data
+        $update_akun = \App\Akun::findOrFail($no_akun);
 
-        $update_barang->nm_barang = $request->addnmbrg; 
-        $update_barang->kd_barang = $request->addkdbrg; 
-        $update_barang->harga = $request->addharga; 
-        $update_barang->stok = $request->addstok; 
-        $update_barang->save(); 
+        $update_akun->no_akun = $request->addnoakun;
+        $update_akun->nm_akun = $request->addnmakun;
+        $update_akun->save(); //method
 
         Alert::success('Update', 'Data terupdate'); //child dari alert, sukses atau gagal disebut polymorpy
 
@@ -107,14 +104,14 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($kd_barang)
+    public function destroy($no_akun)
     {
         //
-        $barang = \App\Barang::findOrFail($kd_barang); 
-        $barang->delete(); 
-        
-        Alert::success('Pesan ','Data berhasil dihapus'); 
-        
-        return redirect()->route('barang.index');
+        $akun = \App\Akun::findOrFail($no_akun);
+        $akun->delete();
+
+        Alert::success('Pesan', 'Data terhapus');
+
+        return redirect()->route('akun.index');
     }
 }
