@@ -26,5 +26,7 @@ class UserSeeder extends Seeder
             'email' => 'boby@bsi.ac.id',
             'password' => bcrypt('password')
         ]);
+
+        $user->assignRole('user');
     }
 }
