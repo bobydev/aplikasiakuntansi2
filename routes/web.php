@@ -52,6 +52,20 @@ Route::get('/setting', 'SettingController@index')->name('setting.transaksi');
 
 Route::post('/setting/simpan', 'SettingController@simpan');
 
+//  route pemesanan
+
+Route::get('/transaksi', 'PemesananController@index')->name('pemesanan.transaksi'); 
+
+Route::post('/sem/store', 'PemesananController@store'); 
+
+Route::get('/transaksi/hapus/{kd_barang}','PemesananController@destroy'); 
+
+// route DetailPesan 
+
+Route::post('/detail/store', 'DetailPesanController@store'); 
+
+Route::post('/detail/simpan', 'DetailPesanController@simpan');
+
 
 
 
