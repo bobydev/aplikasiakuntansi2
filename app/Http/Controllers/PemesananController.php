@@ -32,7 +32,7 @@ class PemesananController extends Controller
         $no = 1;
         $format = sprintf("%03s", abs((int)$noUrutAkhir + 1)) . '/' . $awal . '/' . $bulanRomawi[date('n')] . '/' . date('Y');
 
-        return view ('pemesanan.pemesanan', ['barang' => $barang, 'akun' => $akun, 'supplier' => $supplier, 'temp_pemesanan' => $temp_pesan, 'format' => $format]);
+        return view ('pemesanan', ['barang' => $barang, 'akun' => $akun, 'supplier' => $supplier, 'temp_pemesanan' => $temp_pesan, 'format' => $format]);
 
     }
 
