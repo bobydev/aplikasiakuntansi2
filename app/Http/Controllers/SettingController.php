@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Setting;
 use Alert;
 
 class SettingController extends Controller
@@ -21,7 +22,7 @@ class SettingController extends Controller
         return view ('admin.setting.setting', ['akun' => $akun, 'setting' => $setting]);
     }
 
-    public function simpan(Request $request){
+    public function simpan (Request $request){
         $kode = $request->kode;
         $akun = $request->akun;
 
@@ -30,6 +31,7 @@ class SettingController extends Controller
                 $input['no_akun'] = $akun[$key];
                 Setting::where('id_setting', $kode[$key])->update($input);
             }
+        
 
         Alert::warning('Pesan', 'Pengaturan akun sudah dilakukan');
 
