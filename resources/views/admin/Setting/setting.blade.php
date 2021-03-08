@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-@include('sweetalert:alert')
+@include('sweetalert::alert')
 
 <div class="d-sm-flex align-item-center justify-content-beetween mb-4"> 
     <h1 class="h3 mb-0 text-gray-800">Pengaturan Akun Transaksi</h1>

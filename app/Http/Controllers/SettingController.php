@@ -18,8 +18,7 @@ class SettingController extends Controller
         //
         $akun = \App\Akun::All();
         $setting = \App\Setting::All();
-
-        return view ('setting.setting', ['akun' => $akun, 'setting' => $setting]);
+        return view ('admin.setting.setting', ['akun' => $akun, 'setting' => $setting]);
     }
 
     public function simpan(Request $request){
