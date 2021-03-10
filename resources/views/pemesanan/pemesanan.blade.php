@@ -54,10 +54,10 @@
                     @foreach ($temp_pemesanan as $temp)
                         <tr> 
                             <td>
-                                <input name="kd_brg[]" class="form-control" type="hidden" value="{{$temp->kd_brg}}" readonly >{{$temp->kd_barag}}
+                                <input name="kd_brg[]" class="form-control" type="hidden" value="{{$temp->kd_barang}}" readonly >{{$temp->kd_barang}}
                             </td> 
                             <td>
-                                <input name="nama" class="form-control" type="hidden" value="{{$temp->nm_brg}}" readonly >{{$temp->nm_barang}}
+                                <input name="nama" class="form-control" type="hidden" value="{{$temp->nm_barang}}" readonly >{{$temp->nm_barang}}
                             </td> 
                             <td>
                                 <input name="qty_pesan[]" class="form-control" type="hidden" value="{{$temp->qty_pesan}}" readonly>{{$temp->qty_pesan}}
@@ -108,7 +108,7 @@
                 <option value="">Pilih</option> 
                 @foreach ($barang as $product) 
                 
-                <option value="{{ $product->kd_brg }}">{{ $product->kd_brg }} - {{ $product->nm_brg }} [{{ number_format($product->harga) }}]</option>
+                <option value="{{ $product->kd_barang }}">{{ $product->kd_barang }} - {{ $product->nm_barang }} [{{ number_format($product->harga) }}]</option>
                 
                 @endforeach 
             </select> 

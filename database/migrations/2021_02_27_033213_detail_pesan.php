@@ -15,7 +15,7 @@ class DetailPesan extends Migration
     {
         Schema::create('detail_pesan', function (BluePrint $table){
             $table->string('no_pesan', 14);
-            $table->string('kd_brg', 5);
+            $table->string('kd_barang', 5);
             $table->integer('qty_pesan');
             $table->integer('subtotal');
         });

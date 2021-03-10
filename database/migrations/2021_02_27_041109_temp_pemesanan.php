@@ -14,7 +14,7 @@ class TempPemesanan extends Migration
     public function up()
     {
         Schema::create('temp_pemesanan', function (BluePrint $table){
-            $table->string('kd_brg', 5);
+            $table->string('kd_barang', 5);
             $table->integer('qty_pesan');
         });
     }

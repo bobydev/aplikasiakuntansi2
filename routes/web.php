@@ -66,6 +66,14 @@ Route::post('/detail/store', 'DetailPesanController@store');
 
 Route::post('/detail/simpan', 'DetailPesanController@simpan');
 
+// route pembelian
+
+Route::get('/pembelian', 'PembelianController@index')->name('pembelian.transaksi'); 
+
+Route::get('/pembelian-beli/{id}', 'PembelianController@edit'); 
+
+Route::post('/pembelian/simpan', 'PembelianController@simpan');
+
 
 
 

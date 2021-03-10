@@ -15,7 +15,7 @@ class DetailRetur extends Migration
     {
         Schema::create('detail_retur', function (BluePrint $table){
             $table->string('no_retur', 14);
-            $table->string('kd_brg', 5);
+            $table->string('kd_barang', 5);
             $table->integer('qty_retur');
             $table->integer('sub_retur');
         });
