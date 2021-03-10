@@ -54,7 +54,7 @@
                     @foreach ($temp_pemesanan as $temp)
                         <tr> 
                             <td>
-                                <input name="kd_brg[]" class="form-control" type="hidden" value="{{$temp->kd_barang}}" readonly >{{$temp->kd_barang}}
+                                <input name="kd_barang[]" class="form-control" type="hidden" value="{{$temp->kd_barang}}" readonly >{{$temp->kd_barang}}
                             </td> 
                             <td>
                                 <input name="nama" class="form-control" type="hidden" value="{{$temp->nm_barang}}" readonly >{{$temp->nm_barang}}
@@ -66,7 +66,7 @@
                                 <input name="sub_total[]" class="form-control" type="hidden" value="{{$temp->sub_total}}" readonly >{{$temp->sub_total}}
                             </td> 
                             <td align="center"> 
-                                <a href="/transaksi/hapus/{{$temp->kd_brg}}" onclick="return confirm('Yakin Ingin menghapus data?')" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"> <i class="fas fa-trash-alt fa-sm text-white-50"></i> Hapus</a> 
+                                <a href="/transaksi/hapus/{{$temp->kd_barang}}" onclick="return confirm('Yakin Ingin menghapus data?')" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"> <i class="fas fa-trash-alt fa-sm text-white-50"></i> Hapus</a> 
                             </td> 
                         </tr>
 
@@ -104,7 +104,7 @@
     <div class="modal-body"> 
         <div class="form-group"> 
         <label for="exampleFormControlInput1">Barang</label> 
-            <select name="brg" id="kd_brg select2" class="form-control" required width="100%"> 
+            <select name="brg" id="kd_barang select2" class="form-control" required width="100%"> 
                 <option value="">Pilih</option> 
                 @foreach ($barang as $product) 
                 
@@ -116,7 +116,7 @@
 
         <div class="form-group"> 
             <label for="exampleFormControlInput1">Qty</label> 
-            <input type="number" min="1" name="qty" id="addnmbrg" class="form-control" id="exampleFormControlInput1" > 
+            <input type="number" min="1" name="qty" id="qty" class="form-control" id="exampleFormControlInput1" > 
         </div> 
     </div>
 

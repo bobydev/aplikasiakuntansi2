@@ -69,7 +69,7 @@ class PemesananController extends Controller
         } else{
             Pemesanan_tem::create([
                 'qty_pesan' => $request->qty,
-                'kd_barang => $request->brg'
+                'kd_barang' => $request->brg
             ]);
 
             return redirect('transaksi');
