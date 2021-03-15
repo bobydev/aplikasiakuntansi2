@@ -7,6 +7,7 @@ use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt; 
 use App\DetailPembelian; 
 use App\Pembelian; 
+use App\Jurnal;
 use DB; 
 use Alert; 
 use PDF;

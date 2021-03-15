@@ -80,7 +80,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item fas fa-arrow-circle-right" href="{{ route('pemesanan.transaksi') }}"> Pemesanan </a>
                         <a class="collapse-item fas fa-arrow-circle-right" href="{{ route('pembelian.transaksi') }}"> Pembelian </a>
-                        <a class="collapse-item fas fa-arrow-circle-right" href="#"> Retur </a>
+                        <a class="collapse-item fas fa-arrow-circle-right" href="{{ route('retur.transaksi') }}"> Retur </a>
                         <a class="collapse-item fas fa-arrow-circle-right" href="#"> Sub Menu 4</a>
                         <a class="collapse-item fas fa-arrow-circle-right" href="#"> Sub Menu 5</a>
                     </div>
@@ -90,9 +90,15 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Menu Utama 3</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2" aria-expanded="true" aria-controls="collapsePages2"> 
+                <i class="fas fa-fw fa-folder-open"></i>
+                    <span>Laporan</span></a>
+                <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar"> 
+                    <div class="bg-white py-2 collapse-inner rounded"> 
+                        <a class="collapse-item fas fa-arrow-circle-right" href="{{ route('laporan.index') }}" > Jurnal Umum</a>
+                        <a class="collapse-item fas fa-arrow-circle-right" href="{{ route('stok.index') }}"> Stok Barang</a> 
+                    </div> 
+                </div>    
             </li>
 
             <li class="nav-item">

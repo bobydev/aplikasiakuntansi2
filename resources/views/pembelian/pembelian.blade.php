@@ -12,7 +12,7 @@
     <div class="table-responsive"> 
         <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0"> 
             <thead class="thead-dark"> 
-                <tr> 
+                <tr align="center"> 
                     <th width="15%">No Pemesanan</th> 
                     <th>Tanggal Pesan</th> 
                     <th width="30%">Aksi</th> 
@@ -21,13 +21,13 @@
 
             <tbody> 
             @foreach($pemesanan as $pesan) 
-                <tr> 
+                <tr align="center"> 
                     <td width="15%">{{ $pesan->no_pesan }}</td> 
                     <td>{{ $pesan->tgl_pesan }}</td> 
                     <td width="30%"> 
                         <a href="{{url('/pembelian-beli/'.Crypt::encryptString($pesan->no_pesan))}}" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
                             <i class="fas fa-edit fa-sm text-white-50"></i> Beli</a> 
-                        <a href="{{route('cetak.order_pdf',[Crypt::encryptString($pesan->no_pesan)])}}" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm"> 
+                        <a href="{{route('laporan.faktur',[Crypt::encryptString($pesan->no_pesan)])}}" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm"> 
                             <i class="fas fa-print fa-sm text-white-50"></i> Cetak Invoice</a> 
                         <a href="/akun/hapus/{{$pesan->no_pesan}}" onclick="return confirm('Yakin Ingin menghapus data?')" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
                             <i class="fas fa-trash-alt fa-sm text-white-50"></i> Hapus</a>

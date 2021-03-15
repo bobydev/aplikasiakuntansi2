@@ -74,6 +74,44 @@ Route::get('/pembelian-beli/{id}', 'PembelianController@edit');
 
 Route::post('/pembelian/simpan', 'PembelianController@simpan');
 
+// route cetak faktur
+
+Route::get('laporan.faktur', [App\Http\Controllers\PembelianController::class, 'pdf'])->name('laporan.faktur');
+
+// Route retur
+
+Route::get('/retur','ReturController@index')->name('retur.transaksi'); 
+
+Route::get('/retur-beli/{id}', 'ReturController@edit'); 
+
+Route::post('/retur/simpan', 'ReturController@simpan');
+
+// Route Laporan jurnal
+
+Route::get('/laporan', 'LaporanController@index')->name('laporan.index');
+
+// Route::resource( '/laporan' , 'LaporanController'); 
+
+Route::resource( '/stok' , 'LapStokController'); 
+
+Route::get('/laporan/faktur/{invoice}', 'PembelianController@pdf')->name('cetak.order_pdf'); 
+
+//laporan cetak 
+
+Route::get('/laporancetak/cetak_pdf', 'LaporanController@cetak_pdf');
+
+
+
+
+
+
+// Route::resource('kasmasuk', 'KasMasukController');
+// Route::get('kasmasuk', [App\Http\Controllers\KasMasukController::class, 'index'])->name('kasmasuk');
+// Route::get('inputkm', [App\Http\Controllers\KasMasukController::class, 'create'])->name('kasmasuk.inputkm');
+// Route::post('kasmasuk.store', [App\Http\Controllers\KasMasukController::class, 'store'])->name('kasmasuk.store');
+// Route::get('detailkm/show/{id}', [App\Http\Controllers\KasMasukController::class, 'show'])->name('detailkm.show/{id}');
+// Route::get('kasmasuk/destroy/{id}', [App\Http\Controllers\KasMasukController::class, 'destroy'])->name('kasmasuk.destroy/{id}');
+
 
 
 

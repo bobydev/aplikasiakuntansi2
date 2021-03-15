@@ -11,17 +11,17 @@
 
     <div class="form-group col-sm-4">
         <label for="exampleFormControlInput1">No. Faktur</label> 
-        <input type="text" name="no_pesan" value="{{ $format }}" class="form-control" id="exampleFormControlInput1" > 
+        <input type="text" name="no_pesan" id="no_pesan" value="{{ $format }}" class="form-control" id="exampleFormControlInput1" > 
     </div>
 
     <div class="form-group col-sm-4"> 
         <label for="exampleFormControlInput1">Tanggal Transaksi</label> 
-        <input type="date" min="1" name="tgl" id="addnmbrg" class="form-control" id="exampleFormControlInput1" require > 
+        <input type="date" min="1" name="tgl" id="tgl" class="form-control" id="exampleFormControlInput1" require > 
     </div>
 
     <div class="form-group col-sm-4"> 
         <label for="exampleFormControlInput1">Supplier</label> 
-        <select name="supp" id="supp select2" class="form-control" required width="100%">   
+        <select name="supp" id="supp select2" class="form-control" width="100%">   
             <option value="">Pilih</option> 
             @foreach ($supplier as $supp) 
             <option value="{{ $supp->kd_supp }}">{{ $supp->nm_supp }} - {{ $supp->alamat }} </option> 

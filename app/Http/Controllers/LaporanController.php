@@ -3,45 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\DetailPesan;
-use App\Pemesanan;
-use Alert;
+use App\Laporan;
+use PDF; 
+use DB;
 
-class DetailPesanController extends Controller
+class LaporanController extends Controller
 {
-    public function simpan(Request $request)
-    {
-        // simpan ke tabel pemesanan
-
-        $tambah_pemesanan = new \App\Pemesanan;
-        
-        $tambah_pemesanan->no_pesan = $request->no_pesan;
-        $tambah_pemesanan->tgl_pesan = $request->tgl;
-        $tambah_pemesanan->total = $request->total; 
-        $tambah_pemesanan->kd_supp = $request->supp; 
-        
-        $tambah_pemesanan->save(); 
-        
-        //SIMPAN DATA KE TABEL DETAIL 
-        
-        $kd_barang = $request->kd_barang; 
-        $qty = $request->qty_pesan; 
-        $sub_total= $request->sub_total; 
-        
-        foreach($kd_barang as $key => $no) { 
-            $input['no_pesan'] = $request->no_pesan; 
-            $input['kd_barang'] = $kd_barang[$key]; 
-            $input['qty_pesan'] = $qty[$key]; 
-            $input['subtotal'] = $sub_total[$key]; 
-            
-            DetailPesan::insert($input); 
-        } 
-        
-        Alert::success('Pesan ','Data berhasil disimpan'); 
-        
-        return redirect('/transaksi'); 
-    }
-    
     /**
      * Display a listing of the resource.
      *
@@ -50,6 +17,7 @@ class DetailPesanController extends Controller
     public function index()
     {
         //
+        return view('laporan.laporan');
     }
 
     /**
@@ -79,9 +47,26 @@ class DetailPesanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $Request)
     {
         //
+        $periode = $request->get('periode'); 
+        
+        if($periode == 'All') { 
+            $bb = \App\Laporan::All(); 
+            $akun = \App\Akun::All(); 
+            $pdf = PDF::loadview('laporan.cetak', ['laporan' => $bb,'akun' => $akun])->setPaper('A4','landscape'); 
+            
+            return $pdf->stream(); 
+        } elseif($periode == 'periode'){ 
+            
+            $tglawal = $request->get('tglawal'); 
+            $tglakhir = $request->get('tglakhir'); 
+            $akun = \App\Akun::All(); 
+            $bb = DB::table('jurnal')->whereBetween('tgl_jurnal', [$tglawal, $tglakhir]) ->orderby('tgl_jurnal', 'ASC')->get(); 
+            $pdf = PDF::loadview('laporan.cetak', ['laporan' => $bb, 'akun' => $akun])->setPaper('A4','landscape'); 
+            
+            return $pdf->stream(); }
     }
 
     /**
