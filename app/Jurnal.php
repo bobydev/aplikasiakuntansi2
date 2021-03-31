@@ -13,6 +13,6 @@ class Jurnal extends Model
     protected $keyType = 'string'; 
     public $timestamps = false; 
     
-    protected $table = "jurnal"; 
+    protected $table = "jurnals"; 
     protected $fillable=['no_jurnal','keterangan','tgl_jurnal','no_akun','debet','kredit'];
 }

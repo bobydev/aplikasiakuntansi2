@@ -47,7 +47,7 @@ class LaporanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $Request)
+    public function show(Request $request)
     {
         //
         $periode = $request->get('periode'); 
@@ -63,7 +63,7 @@ class LaporanController extends Controller
             $tglawal = $request->get('tglawal'); 
             $tglakhir = $request->get('tglakhir'); 
             $akun = \App\Akun::All(); 
-            $bb = DB::table('jurnal')->whereBetween('tgl_jurnal', [$tglawal, $tglakhir]) ->orderby('tgl_jurnal', 'ASC')->get(); 
+            $bb = DB::table('jurnals')->whereBetween('tgl_jurnal', [$tglawal, $tglakhir]) ->orderby('tgl_jurnal', 'ASC')->get(); 
             $pdf = PDF::loadview('laporan.cetak', ['laporan' => $bb, 'akun' => $akun])->setPaper('A4','landscape'); 
             
             return $pdf->stream(); }

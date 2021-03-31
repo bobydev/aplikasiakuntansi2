@@ -98,7 +98,8 @@ Route::get('/laporan/faktur/{invoice}', 'PembelianController@pdf')->name('cetak.
 
 //laporan cetak 
 
-Route::get('/laporancetak/cetak_pdf', 'LaporanController@cetak_pdf');
+Route::get('/laporan/cetak', 'LaporanController@show');
+
 
 
 
