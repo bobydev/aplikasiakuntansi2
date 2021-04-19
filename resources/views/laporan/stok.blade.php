@@ -25,8 +25,8 @@
                         
                         @foreach ($data as $item) 
                             <tr align="center"> 
-                                <td>{{ $item->kd_brg}}</td> 
-                                <td>{{ $item->nm_brg}}</td> 
+                                <td>{{ $item->kd_barang}}</td> 
+                                <td>{{ $item->nm_barang}}</td> 
                                 <td>{{ number_format($item->stok,0,',','.') }}</td> 
                                 <td>{{ number_format($item->beli,0,',','.') }}</td> 
                                 <td>{{ number_format($item->retur,0,',','.') }}</td> 
